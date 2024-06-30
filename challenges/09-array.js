@@ -85,11 +85,6 @@ console.log(averageScore);
 //    }
 // 2. assign to survey and log
 
-const subject = 'art';
-const total = {};
-total[subject] = 'some';
-console.log(total);
-
 const survey = students.reduce((survey, student) => {
   const favSubject = student.favoriteSubject;
   if (survey[favSubject]) {
