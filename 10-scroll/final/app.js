@@ -35,3 +35,34 @@ window.addEventListener('scroll', () => {
     topLink.classList.remove('show-link');
   }
 });
+
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
+scrollLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    const element = document.getElementById(id);
+
+    const naveHeight = navBar.getBoundingClientRect().height;
+    const containerHeight = linksContaier.getBoundingClientRect().height;
+    const fixedNav = navBar.classList.contains('fixed-nav');
+
+    let position = element.offsetTop - naveHeight;
+    console.log(element.offsetTop);
+
+    //   // fixed navr 가 아니면
+    if (!fixedNav) {
+      position = position - naveHeight;
+    }
+    if (naveHeight > 82) {
+      position = position + containerHeight;
+    }
+
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+    linksContaier.style.height = 0;
+  });
+});
