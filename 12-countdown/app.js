@@ -26,7 +26,12 @@ const giveaway = document.querySelector('.giveaway');
 const deadline = document.querySelector('.deadline');
 const items = document.querySelectorAll('.deadline-format h4');
 
-let futureDate = new Date(2024, 8, 13, 23, 40, 0);
+let tempTime = new Date();
+let tempYear = tempTime.getFullYear();
+let tempMonth = tempTime.getMonth();
+let tempDay = tempTime.getDate();
+
+const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30);
 
 const year = futureDate.getFullYear();
 const hours = futureDate.getHours();
